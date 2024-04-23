@@ -1,14 +1,40 @@
 {% extends 'base.html' %}
 
 {% block header %}
+  <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+  {% include("_nav_home.html") %}  
   <h2>{% block title %}Home{% endblock title %}</h2>
 {% endblock header %}
 
 {% block content %}
-  <p>
-    Learn more about this project by visiting the <a href="{{ url_for('pages.about') }}">About page</a>.
-  </p>
-  <p>
-    Learn more about the <a href="{{ url_for('pages.help') }}">Help page</a>.
-  </p>
+<p>Add categories and topics.</p>
+<form class="pure-form" method="post" action="#">
+    <fieldset>
+        <label for="category">Category</label>
+        <input type="text" placeholder="eg. class" />
+        <button type="submit" class="pure-button pure-button-primary">Add Category</button>
+    </fieldset>
+    <fieldset>
+        <label for="topic">Topic</label>
+        <input type="text" placeholder="eg. maths" />
+        <button type="submit" class="pure-button pure-button-primary">Add Topic</button>
+    </fieldset>
+</form>
+<hr>
+<table width="100%" class="pure-table-striped">
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Topic</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Class 2</td>
+            <td>Maths</td>
+            <td>Edit | Delete</td>
+        </tr>
+    </tbody>
+</table>
 {% endblock content %}

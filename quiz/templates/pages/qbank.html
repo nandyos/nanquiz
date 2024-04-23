@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+  {% include("_nav_qbank.html") %}  
+  <h2>{% block title %}Questions{% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+<p>Add questions and options.</p>
+<form class="pure-form" method="post" action="#">
+    <fieldset>
+    <table align="center" width="50%" class="pure-table">
+        <tr>
+            <td><label for="category">Choose category</label></td>
+            <td><select id="category" name="category">
+                <option>Class 2</option>
+                <option>Class 3</option>
+                <option>Class 4</option>
+            </select></td>
+        </tr>
+        <tr>
+            <td><label for="topic">Choose topic</label></td>
+            <td><select id="topic" name="topic">
+                <option>Maths</option>
+                <option>Science</option>
+                <option>English</option>
+            </select>
+        </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <textarea id="question" rows="3" cols="50" placeholder="Type your question here."></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"><textarea id="options" rows="3" cols="50" placeholder="press Enter key after each option. Type yes after an option if correct answer."></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Add Question"></td>
+        </tr>
+    </table>
+    </fieldset>
+</form>
+<hr>
+<table width="100%" class="pure-table-striped">
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Topic</th>
+            <th>Question</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Class 2</td>
+            <td>Maths</td>
+            <td>What is 1+1?</td>
+            <td>Edit | Delete</td>
+        </tr>
+    </tbody>
+</table>
+{% endblock content %}

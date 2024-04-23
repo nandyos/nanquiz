@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+  {% include("_nav_login.html") %}  
+  <h2>{% block title %}Login{% endblock title %}</h2>
+{% endblock header %}
+
+{% block content %}
+<form class="pure-form" action="/home">
+    <fieldset>
+        <input type="email" placeholder="Email" />
+        <input type="password" placeholder="Password" />
+        <button type="submit" class="pure-button pure-button-primary">Login</button>
+    </fieldset>
+</form>
+{% endblock content %}
